@@ -15,7 +15,6 @@ type ProjectProps = {
 export default function Project() {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Apply scroll animation to the container rather than individual projects
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"],
@@ -28,9 +27,7 @@ export default function Project() {
 
   useEffect(() => {
     if (cmsapi && cmsapi.length > 0) {
-      console.log("CMS API Data:", cmsapi);
       
-      // Filtering for project entries and mapping the necessary fields
       const filteredProjects = cmsapi
         .filter((entry: any) => entry.fields.slug.startsWith("project")) 
         .map((entry: any) => ({
@@ -40,7 +37,6 @@ export default function Project() {
           imageUrl: `https:${entry.fields.thumbnail.fields.file.url}`,
         }));
 
-      console.log("Filtered Projects:", filteredProjects);
       setProjects(filteredProjects);
     }
   }, [cmsapi]);

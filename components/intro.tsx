@@ -31,14 +31,11 @@ export default function Intro() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading content</div>;
 
-  const about = mappedData["about-me"];
-  const experienceSkills = mappedData["projects-expierience-skills"];
   const home = mappedData["home"];
 
   if (!cmsapi || cmsapi.length === 0) return <div>No content available</div>;
 
   if (!home) return <div>No content available for home</div>;
-  console.log(cmsapi);
 
   return (
     <section
