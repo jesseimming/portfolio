@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { useContentful } from "@/lib/useContentful"; 
 import { useActiveSectionContext } from "@/context/active-section-context";
 
-
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
@@ -42,7 +41,7 @@ export default function Skills() {
   if (!cmsapi || cmsapi.length === 0) return <div>No content available</div>;
 
   const experienceSkills = mappedData["experience-skills"];
-  const skillsData = experienceSkills?.fields?.text1?.split(" ") || [];
+  const skillsData: string[] = experienceSkills?.fields?.text1?.split(" ") || [];
 
   return (
     <section
@@ -52,7 +51,7 @@ export default function Skills() {
     >
       <SectionHeading>My skills</SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
+        {skillsData.map((skill: string, index: number) => (
           <motion.li
             className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
             key={index}

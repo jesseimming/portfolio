@@ -11,7 +11,7 @@ type ProjectProps = {
   tags: string[];
   imageUrl: string;
 };
-
+  
 export default function Project() {
   const ref = useRef<HTMLDivElement>(null);
 
